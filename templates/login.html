@@ -1,0 +1,85 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<body>
+    <section class="login-form">
+        <a class="logotxt" href="{% url 'main'%}">AMI:</a>
+        <form action="{% url 'gologin'%}" method="POST">
+            {% csrf_token %}
+            <div class="int-area">
+                <input type="text" name="email" id="id" autocomplete="off" required>
+                <label for = "id">E-MAIL</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="password" id="pw" autocomplete="off" required>
+                <label for = "pw">PASSWORD</label>
+            </div>
+            <div class="errMsg">
+                {% if error %}
+                    {{ error }}
+                {% endif %}
+            </div>
+            <div class="btn-area">
+                <button type="submit" name="btn" id="btn">LOGIN</button>
+            </div>
+        </form>
+        <div class="caption">
+            <a>"Not registered?"</a>
+            <a class = "join" href="{% url 'select' %}">Create an account</a>
+        </div>
+        <div class="caption">
+            <a class = "join" href="{% url 'staff_login' %}">관리자/약사로 로그인 하기</a>
+        </div>
+
+        <p>간편하게 SNS로 로그인</p>
+        <div class="snsLOGO2">
+            <a href="{% provider_login_url 'google' %}" class="sns2"><img class="snsLogoG2" src="{% static 'img/google.png' %}"></a>
+            <a href="{% provider_login_url 'kakao' %}" class="sns2"><img class="snsLogoK2" src="{% static 'img/kakao.png' %}"></a> 
+        </div>
+        
+    </section>
+
+    <script>
+        let id = $('#id');
+        let pw = $('#pw');
+        let btn = $('#btn');
+
+        $(btn).on('click', function(){
+            if($(id).val() == "") {
+                $(id).next('lable').addClass('warning');
+                setTimeout(function(){
+                    $('lable').removeClass('warning');
+                }, 1500);
+            }
+            else if($(pw).val() == ""){
+                $(pw).next('lable').addClass('warning');
+                setTimeout(function(){
+                    $('lable').removeClass('warning');
+                }, 1500);
+            }
+        });
+    </script> 
+
+    {% if message == "OK" %}
+        <script>
+            alert("회원가입이 완료되었습니다.");
+        </script>
+    {% endif %}
+
+    {% if error == "NO" %}
+        <script>
+            alert("로그인이 되어있지 않습니다. \n로그인을 먼저 해주세요.");
+        </script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}"> 
+    <link rel="stylesheet" href="https://demo.plantpot.works/assets/css/normalize.css">
+    <link rel="stylesheet" href="https://use.typekit.net/opg3wle.css">
+    <title>약 정보 상세페이지</title>
+</head>
+<body>
+    <div class="topSection">
+        {% if user.is_authenticated %}
+            <a class="topIcon" href="{% url 'mypage'%}">My medicines</a>
+            <a class="topIcon" href="/accounts/logout">LOGOUT</a>
+            {% if user.is_staff %}
+                <p class="hello">[STAFF] {{ user.username }}님 안녕하세요.</p>
+                <a class="topIcon" href="{% url 'medicinePostCreate'%}">약 정보 등록 페이지</a>
+            {% else %}
+            <a class="topIcon" href="{% url 'blogPostCreate'%}">Q&A 글쓰기</a>
+            <p class="hello">{{ user.username }}님 안녕하세요.</p>
+            {% endif %}
+        {% else %}
+            <a class="topIcon" href="{% url 'gologin'%}">LOGIN</a>
+        {% endif %}
+    </div>
+
+    <form action="{{ Medicine.get_absolute_url }}" method="POST">
+        {% csrf_token %}
+        <div class="boxForm2">
+            {% if like == 'unlike' %}
+                <button style="border: none; background-color: lightgray;" class="heartlike-btn" type="submit"></button>
+            {% else %}
+                <button style="border: none; background-color: red;" class="heartlike-btn" type="submit"></button>
+            {% endif %}
+
+            <h2>{{ Medicine.name }}</h2>
+                <img class="medicinePic" src="{{ Medicine.medicineImg.url }}" alt="약 사진">
+                <div class="medicineInfo">
+
+                    <h4>♥ 효능·효과</h4>
+                    <pre>
+{{ Medicine.effect }}
+                    </pre>
+
+                    <h4>♥ 복약정보</h4>
+                    <pre>
+{{ Medicine.takeMedicine }}
+                    </pre>
+                
+                    <h4>♥ 용법·용량</h4>
+                    <pre>
+{{ Medicine.use }}
+                    </pre>
+                </div>
+        </div>
+        {% if user.is_authenticated and user.is_staff %}
+            <a href="{{ Medicine.get_absolute_url }}/medicineEdit" style="text-decoration: none; color: black;">수정하기 | </a>
+            <a href="{{ Medicine.get_absolute_url }}/delete" style="text-decoration: none; color: black;">삭제하기</a>
+        {% endif %}
+    </form> 
+
+<script>
+    const button = document.querySelector(".heartlike-btn");
+    button.addEventListener("click", ()=> {
+        if(button.classList.contains("liked")){
+            button.classList.remove("liked");
+        } else {
+            button.classList.add("liked");
+        }
+    });
+</script>
+</body>
+</html>
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}"> 
+    <link rel="stylesheet" href="https://demo.plantpot.works/assets/css/normalize.css">
+    <link rel="stylesheet" href="https://use.typekit.net/opg3wle.css">
+    <title>약 정보 상세페이지</title>
+</head>
+<body>
+    <div class="topSection">
+        {% if user.is_authenticated %}
+            <a class="topIcon" href="{% url 'mypage'%}">My medicines</a>
+            <a class="topIcon" href="/accounts/logout">LOGOUT</a>
+            {% if user.is_staff %}
+                <p class="hello">[STAFF] {{ user.username }}님 안녕하세요.</p>
+                <a class="topIcon" href="{% url 'medicinePostCreate'%}">약 정보 등록 페이지</a>
+            {% else %}
+            <a class="topIcon" href="{% url 'blogPostCreate'%}">Q&A 글쓰기</a>
+            <p class="hello">{{ user.username }}님 안녕하세요.</p>
+            {% endif %}
+        {% else %}
+            <a class="topIcon" href="{% url 'gologin'%}">LOGIN</a>
+        {% endif %}
+    </div>
+
+    <div class="boxForm2">
+        <div class="heartlike-btn"></div>
+        <form action="{{ Medicine.get_absolute_url }}" method="POST">
+            {% csrf_token %}
+            <div class="boxForm2">
+                {% if like == 'unlike' %}
+                    <button style="border: none; background-color: lightgray;" class="heartlike-btn" type="submit"></button>
+                {% else %}
+                    <button style="border: none; background-color: red;" class="heartlike-btn" type="submit"></button>
+                {% endif %}
+            <h2>{{ Medicine.name }}</h2>
+            <img class="medicinePic" src="{{ Medicine.medicineImg.url }}" alt="약 사진">
+            <div class="medicineInfo">
+
+                <h4>♥ 효능·효과</h4>
+                <pre>
+                    {{ Medicine.effect }}
+                </pre>
+
+                <h4>♥ 복약정보</h4>
+                <pre>
+                    {{ Medicine.takeMedicine }}
+                </pre>
+            
+                <h4>♥ 용법·용량</h4>
+                <pre>
+                    {{ Medicine.use }}
+                </pre>
+            </div>
+        </div>
+        {% if user.is_authenticated and user.is_staff %}
+            <a href="{{ Medicine.get_absolute_url }}/medicineEdit" style="text-decoration: none; color: black;">수정하기 | </a>
+            <a href="{{ Medicine.get_absolute_url }}/delete" style="text-decoration: none; color: black;">삭제하기</a>
+        {% endif %}
+    </form> 
+
+<script>
+    const button = document.querySelector(".heartlike-btn");
+
+    button.addEventListener("click", ()=> {
+        if(button.classList.contains("liked")){
+            button.classList.remove("liked");
+        } else {
+            button.classList.add("liked");
+        }
+    });
+</script>
+</body>
+</html> -->

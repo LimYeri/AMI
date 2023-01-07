@@ -1,0 +1,1138 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+
+
+*{margin: 0; padding: 0; box-sizing: border-box;
+    /* 사용자가 텍스트를 드래그하지 못하게 하는 코드 */
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFD7E6;
+    background-size: cover;
+}
+body::before{
+    content: "";
+    pointer-events: none;
+    position: absolute; z-index: 1;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color:  rgba(0,0,0,.1);
+}
+
+/*로그인 페이지*/
+.login-form {position: relative; z-index: 2;}
+
+.logotxt {
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    color: #fa2775;
+    font-size: 60px;
+
+}
+.int-area{
+    width: 400px; position: relative;
+    margin-top: 20px;
+}
+.int area:first-child{margin-top: 0;}
+.int-area input{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(89, 87, 87, 0.562);
+    font-size:  18px; color: rgb(255, 255, 255);
+    outline: none;
+}
+.int-area label{
+    position: absolute; left: 10px; top: 15px;
+    font-size: 18px; color: rgba(0, 0, 0, 0.184);
+    transition: all .5s ease;
+}
+.int-area label.warning{
+    color: red !important;
+    animation: warning .3s ease;
+    animation-iteration-count: 3;
+}
+@keyframes warning {
+    0% {transform: translateX(-8px);}
+    25% {transform: translateX(8px);}
+    50% {transform: translateX(-8px);}
+    75% {transform: translateX(8px);}
+    
+}
+.int-area input:focus + label,
+.int-area input:valid + label {
+    top: 2px;
+    font-size: 13px; color: #fa2775;
+}
+
+.btn-area{margin-top: 30px;}
+.btn-area button{
+    width: 100%; height: 50px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn-area button#btn:hover{      /*와 띄어쓰기 하면 호버 적용 안됨 땡발 미친거 아니야?*/
+    background: #fc005c;
+}
+
+.caption{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px; 
+    color: #fff;
+}
+
+.caption a{
+    margin-left: 5px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.caption a.join:hover{
+    text-decoration: underline;
+} 
+
+.snsLOGO2{
+    padding-left: 160px;
+}
+
+.login-form p{
+    font-size: small;
+    color: rgba(255, 255, 255, 0.795);
+    padding-left: 135px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+.snsLOGO2 a.sns2 .snsLogoG2{
+    height: 33px;
+    margin-right: 3px;
+}
+
+.snsLOGO2 a.sns2 .snsLogoK2{
+    height: 33px;
+    margin-left: 3px;
+}
+
+/*회원가입 페이지*/
+.boxForm{
+    height: 650px;
+    width: 500px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    padding: 30px, 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.boxForm h2{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.registerForm{
+    margin: 50px;
+    margin-top: 50px;
+
+}
+.int-area .registerInput{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(89, 87, 87, 0.562);
+    font-size:  18px; color: rgb(0, 0, 0);
+    outline: none;
+}
+
+.id{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+.pw{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+.name{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+
+#gender {
+    margin: 30px;
+    width: 100%;
+    color: #636e72;
+    font-size: 16px;
+    display: block;
+    border: 2px;
+    margin-top: 45px;
+    padding: 7px;
+    margin-left: 0px;
+}
+
+#age {
+    margin: 30px;
+    width: 100%;
+    color: #636e72;
+    font-size: 16px;
+    display: block;
+    border: 2px;
+    margin-top: 33px;
+    padding: 7px;
+    margin-left: 0px;
+}
+
+.boxForm p{
+    font-size: 13px;
+}
+
+.boxForm a.sns .snsLogoG{
+    height: 33px;
+    margin-right: 3px;
+}
+
+.boxForm a.sns .snsLogoK{
+    height: 33px;
+    margin-left: 3px;
+}
+
+.boxForm .snsLOGO{
+    margin-top: 20px;
+}
+
+
+#btn2{
+    width: 50%; height: 50px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#btn2:hover {
+    background: #fc005c;
+}
+
+
+/*메인페이지*/
+
+.topSection{
+    box-sizing: content-box;
+    width:1536px;
+    height: 50px;
+    background-color: #fa2775;
+    position: absolute;
+    top: 0px;
+}
+
+.topIcon{
+    text-decoration: none;
+    font-weight:500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+    float: right;
+    margin-right: 10px;
+}
+
+.hello{
+    text-decoration: none;
+    font-weight:500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+    font-size: large;
+    padding: 10px;
+    float: right;
+    padding-right: 20px;
+}
+
+.maintxt1{
+    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Playfair Display', serif; */
+    color: #3B3735;
+    font-size: larger;
+    position: absolute;
+    font-weight: 900;
+    font-size: 27px;
+    margin-bottom: 440px;
+    margin-left: 10px;
+}
+
+.maintxt2{
+    /* font-family: 'Signika', sans-serif; */
+    font-family: 'Playfair Display', serif;
+    color: #ffffff;
+    font-weight: bold;
+    position: absolute;
+    font-size: 50px;
+    margin-right: 25px;
+    bottom: 25px;
+    padding-bottom: 180px;
+    padding-right: 370px;
+
+}
+
+.maintxt3{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: small;
+    position: absolute;
+    font-size: 13px;
+    right: 24%;
+    top: 22%;
+    color: rgb(72, 72, 72);
+
+}
+.mainImg1{
+    height: 300px;
+    border-radius: 20px;
+    margin-right: 130px;
+    margin-bottom: 180px;
+}
+
+.mainImg2{
+    height: 370px;
+    width: 280px;
+    margin-top: 120px;
+    margin-right: 50px;
+    border-radius: 10px;
+}
+
+.search{
+    top: 75%;
+    right: 79%;
+    padding-right: 40px;
+    position: absolute;
+    transform: translateX(95%);
+    height: 30px;
+    border: 3px solid #fa2775;
+    border-radius: 70px;
+    transition: 0.4s;
+    width: 200px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.search:hover{
+    box-shadow: 0px 0px .5px 1px #fa2775;
+    width: 230px;
+}
+
+.searchBTN{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    color: #fa2775;
+    position:absolute;
+    left: 200px;
+}
+
+.search:hover > .searchBTN{
+    background-color: white;
+}
+
+.searchtxt{
+    width: 0px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 15px;
+    line-height: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.search:hover > .searchtxt{
+    padding-left: 10px;
+    width: 240px;
+}
+
+/*상세페이지*/
+.boxForm2{
+    height: 650px;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+/*     position: absolute; */
+    padding: 30px, 20px;
+    margin-top: 50px;
+}
+
+.heartlike-btn{
+    position: relative;
+    width: 0px;
+    height: 0px;
+    left: 283px;
+    top: 35px;
+}
+
+.heartlike-btn:before {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    width: 15px;
+    height: 25px;
+    border-radius:  40px 40px 40px 40px;
+    background-color: lightgray;
+    content: "";
+    cursor: pointer;
+    transition: background .4s;
+}
+
+.heartlike-btn:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    width: 15px;
+    height: 25px;
+    border-radius: 40px 40px 40px 40px;
+    background-color: lightgray;
+    content: "";
+    cursor: pointer;
+    transition: background .4s;
+}
+
+.heartlike-btn.liked::before,
+.heartlike-btn.liked::after{
+    background-color: #ff0048;
+}
+
+.heartlike-btn.liked{
+    animation: liked .4s ease;
+}
+
+@keyframes liked{
+    0%{
+        transform: scale(.8);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.boxForm2 h2{
+    text-align: center;
+    padding-top: 30px;
+}
+
+.medicinePic{
+    height: 200px;
+    width: 350px;
+    margin-top: 40px;
+    margin-left: 210px;
+    border-radius: 10px;
+}
+
+.medicineInfo{
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.medicineInfo pre{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 10px;
+}
+
+
+/*마이페이지*/
+.topSection2{
+    box-sizing: content-box;
+    width:1536px;
+    height: 50px;
+    background-color: #fa2775;
+    position: absolute;
+    top: 0px;
+}
+
+.topSection2 a{
+    padding-right: 30px;
+}
+
+.topIcon2{
+    text-decoration: none;
+    font-weight:500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+    float: right;
+}
+
+.boxForm3{
+    height: 650px;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    padding: 30px, 20px;
+    margin-top: 50px;
+}
+
+.boxForm3 h2{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.userInfoDiv{
+    height: 600px;
+    width: 300px;
+    border-right: solid 1.5px rgba(219, 219, 219, 0.947);
+    position: relative;
+    margin-top: 50px;
+    right: 20%;
+}
+
+.userInfoDiv h3{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 140px;
+}
+
+.userInfoDiv .mailInfo{
+    margin-top: 5px;
+    text-align: center;
+    margin-left: 57px;
+    font-weight:bolder;
+}
+
+.userInfoDiv .genderInfo{
+    margin-top: 10px;
+    text-align: center;
+    margin-left: 60px;
+    color: #323131f3;
+}
+
+.userInfoDiv .ageInfo{
+    margin-top: 10px;
+    text-align: center;
+    margin-left: 60px;
+    color: #323131f3;
+}
+
+.userIcon{
+    height: 70px;
+    width: 70px;
+    margin-left: 145px;
+    margin-top: 30px;
+}
+
+.jjimMedicine{
+    height: 600px;
+    width: 500px;
+    margin-top: 40px;
+    margin-left: 300px;
+    border: none;
+    position: absolute;
+}
+
+.jjimMedicine h3{
+    height: 600px;
+    width: 300px;
+    text-align: center;
+    margin-left: 55px;
+
+}
+
+.userInfoDiv .mywrite{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 63px;
+    margin-top: 148px;
+}
+.grid-container{
+    bottom: 38.5%;
+    position:absolute;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+    right: 24%;
+}
+
+.gridIMG{
+    height: 90px;
+}
+
+
+/*약 이름 배치 .... 노가다*/
+.medicineName0{
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName1{
+    position: absolute;
+    top: 100px;
+    left: 35%;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName2{
+    position: absolute;
+    top: 100px;
+    left: 68.5%;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName3{
+    position: absolute;
+    top: 62.5%;
+    left: 10px;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName4{
+    position: absolute;
+    top: 62.5%;
+    left: 35%;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName5{
+    position: absolute;
+    top: 62.5%;
+    left: 68.5%;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName6{
+    position: absolute;
+    top: 96%;
+    left: 10px;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName7{
+    position: absolute;
+    top: 96%;
+    left: 35%;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+.medicineName8{
+    position: absolute;
+    top: 96%;
+    left: 68.5%;
+    color: rgba(76, 76, 76, 0.915);
+    font-size: 10px;
+}
+
+/*작성한 글 목록*/
+.writelist{
+    border-collapse: collapse;
+    position: absolute;
+    bottom: 3.2%;
+    margin : 25px 0;
+    font-size: 0.7rem;
+    min-width: 535px;
+    margin-left: 16%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.writelist thead tr{
+    background-color: #fa2775;
+    color:white;
+    text-align: left;
+}
+
+.writelist th,
+.writelist td,
+.writelist .title{
+    padding: 10px 10px;
+}
+
+.writelist tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.writelist tbody tr:nth-of-type(even){
+    background-color: #f3f3f3f3;
+}
+
+.writelist tbody tr:last-of-type{
+    border-bottom: 2px solid #fa2775;
+}
+
+.writelist .title:hover{
+    color:#fa2775;
+    text-decoration: underline;
+}
+
+
+/*유저선택 페이지*/
+.boxForm4{
+    height: 650px;
+    width: 700px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    padding: 30px, 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.boxForm4 h2{
+    margin-top: 90px;
+    text-align: center;
+}
+
+.user1{
+    margin-left: 40px;
+    position: absolute;
+    width: 300px;
+    height: 350px;
+    border: solid 2px #b0b0b053;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(69, 69, 69, 0.25);
+    margin-top: 40px;
+}
+
+.user1:hover{
+    background-color: #dddddd42;
+    cursor:pointer;
+}
+
+.user1 p .user{
+    margin-top: 20px;
+    margin-right: 8px;
+    width: 240px;
+    height: 220px;
+}
+
+.user2{
+    margin-bottom :100%;
+    margin-left: 52%;
+    width: 300px;
+    height: 350px;
+    border: solid 2px #b0b0b053;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(69, 69, 69, 0.25);
+    margin-top: 40px;
+}
+
+.user2:hover{
+    background-color: #dddddd42;
+    cursor:pointer;
+}
+
+.user2 p .user{
+    margin-top: 18px;
+    margin-left: 3px;
+    width: 220px;
+    height: 220px;
+}
+
+
+/*약사 회원가입 페이지*/
+.boxForm5{
+    height: 650px;
+    width: 500px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    padding: 30px, 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.boxForm5 h2{
+    margin-top: 50px;
+    text-align: center;
+}
+.int-area .registerInput{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(89, 87, 87, 0.562);
+    font-size:  18px; color: rgb(0, 0, 0);
+    outline: none;
+}
+
+.id{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+.pw{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+.name{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+.pharmacyNum{
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #636e72;
+    font-size: 16px;
+    height: 25px;
+    background: none;
+}
+
+.boxForm5 p{
+    font-size: 13px;
+}
+
+.boxForm5 a.sns .snsLogoG{
+    height: 33px;
+    margin-right: 3px;
+}
+
+.boxForm5 a.sns .snsLogoK{
+    height: 33px;
+    margin-left: 3px;
+}
+
+.boxForm5 .snsLOGO{
+    margin-top: 20px;
+}
+
+#btn3{
+    width: 50%; height: 50px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#btn3:hover {
+    background: #fc005c;
+}
+
+.topSection2{
+    box-sizing: content-box;
+    width:1536px;
+    height: 50px;
+    background-color: #fa2775;
+    position: absolute;
+    top: 0px;
+}
+
+.topSection2 a{
+    padding-right: 30px;
+}
+
+.topIcon2{
+    text-decoration: none;
+    font-weight:500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px;
+    float: right;
+}
+
+/*게시판 페이지*/
+.boxForm6{
+    margin-top: 50px;
+    height: 650px;
+    width: 700px;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    padding: 30px, 20px;
+    text-align: center;
+}
+
+.boxForm6 h1{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.writelist2{
+    border-collapse: collapse;
+    position: absolute;
+    margin : 25px 0;
+    font-size: 0.7rem;
+    min-width: 600px;
+    bottom: 15%;
+    margin-left: 8%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.writelist2 thead tr{
+    background-color: #fa2775;
+    color:white;
+    text-align: left;
+}
+
+.writelist2 th,
+.writelist2 td,
+.writelist2 .title{
+    padding: 10px 10px;
+}
+
+.writelist2 td{
+    text-align: left;
+}
+
+.writelist2 tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.writelist2 tbody tr:nth-of-type(even){
+    background-color: #f3f3f3f3;
+}
+
+.writelist2 tbody tr:last-of-type{
+    border-bottom: 2px solid #fa2775;
+}
+
+.writelist2 .title:hover{
+    color:#fa2775;
+    text-decoration: underline;
+}
+
+#btn4{
+    position: absolute;
+    width: 15%; height: 35px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: 29%;
+    margin-bottom: 80px;
+}
+
+#btn4:hover {
+    background: #fc005c;
+}
+
+
+/*글 작성 폼*/
+.boxForm3 .wrtieTitle{
+    border-radius: 5px;
+    height: 30px;
+    width: 85%;
+    font-size: 15px;
+    margin-left: 60px;
+    display: block;
+    box-shadow: 0 0 8px rgba(103, 103, 103, 0.281);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.boxForm3 .writeContent{
+    border-radius: 5px;
+    height: 30px;
+    width: 85%;
+    font-size: 15px;
+    margin-left: 60px;
+    display: block;
+    height: 300px;
+    box-shadow: 0 0 8px rgba(103, 103, 103, 0.281);
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-bottom: 20px;
+}
+
+#btn5{
+    width: 50px; height: 25px;
+    background: #98989854;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: absolute;
+    margin-left: 79%;
+}
+
+#btn5:hover {
+    background: #6c6c6c7d;
+}
+
+#btn6{
+    position: absolute;
+    width: 50px; height: 25px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 86.5%;
+}
+
+#btn6:hover {
+    background: #fc005c;
+}
+
+/*댓글 기능 페이지*/
+.boxForm3 .comment{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 30px;
+    width: 85%;
+    font-size: 15px;
+    margin-left: 60px;
+    display: block;
+    box-shadow: 0 0 8px rgba(103, 103, 103, 0.281);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.boxForm3 .comment2{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 30px;
+    width: 30%;
+    font-size: 15px;
+    margin-left: 60px;
+    display: block;
+    box-shadow: 0 0 8px rgba(103, 103, 103, 0.281);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.boxForm3 .comment3{
+    border: solid 2px black;
+    border-radius: 5px;
+    height: 30px;
+    width: 30%;
+    font-size: 15px;
+    margin-left: 60px;
+    display: block;
+    box-shadow: 0 0 8px rgba(103, 103, 103, 0.281);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#btn7{
+    position: absolute;
+    width: 50px; height: 25px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 41%;
+    margin-top: 25.7%;
+}
+
+.commentForm pre{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+}
+
+/*약 등록 페이지*/
+.boxForm2 .medicineRegister{
+    height: 40px;
+    width:300px; 
+    position:absolute; 
+    margin-left:15%;
+    margin-top: 30px;
+}
+
+#btn8{
+    position: absolute;
+    width: 45px; height: 35px;
+    background: #fa2775;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-left: 44.5%;
+}
+
+#btn8:hover {
+    background: #fc005c;
+}
+
+.errMsg{
+    color: red;
+    font-size: 13px;
+}

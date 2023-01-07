@@ -1,0 +1,83 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 로그인</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<body>
+    <section class="login-form">
+        <a class="logotxt" href="{% url 'main'%}">AMI:</a>
+        <form action="{% url 'staff_login'%}" method="POST">
+            {% csrf_token %}
+            <div class="int-area">
+                <input type="text" name="staff_id" id="id" autocomplete="off" required>
+                <label for = "id">관리자 ID</label>
+            </div>
+            <div class="int-area">
+                <input type="password" name="password" id="pw" autocomplete="off" required>
+                <label for = "pw">PASSWORD</label>
+            </div>
+            <div class="errMsg">
+                {% if discord %}
+                    {{ discord }}
+                {% endif %}
+            </div>
+            <div class="errMsg">
+                {% if error == "NO" %}
+                    <script>
+                        alert("관리자 계정이 아니므로 약 정보를 등록할 수 없습니다.\n관리자 계정으로 로그인 하세요.");
+                    </script>
+                {% endif %}
+            </div>
+            <div class="btn-area">
+                <button type="submit" name="btn" id="btn">LOGIN</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        let id = $('#id');
+        let pw = $('#pw');
+        let btn = $('#btn');
+
+        $(btn).on('click', function(){
+            if($(id).val() == "") {
+                $(id).next('lable').addClass('warning');
+                setTimeout(function(){
+                    $('lable').removeClass('warning');
+                }, 1500);
+            }
+            else if($(pw).val() == ""){
+                $(pw).next('lable').addClass('warning');
+                setTimeout(function(){
+                    $('lable').removeClass('warning');
+                }, 1500);
+            }
+        });
+    </script> 
+    {% if message == "OK" %}
+        <script>
+            alert("회원가입이 완료되었습니다.");
+        </script>
+    {% endif %}
+    {% if already == "OK" %}
+        <script>
+            alert("해당 약사는 이미 회원가입이 되어 있습니다.");
+        </script>
+    {% endif %}
+
+    {% if editError == 'NO' %}
+        <script>
+            alert("약 제품 수정 및 삭제는 관리자만 수행할 수 있습니다. \n관리자 계정으로 로그인 해주세요.");
+        </script>
+    {% endif %}
+</body>
+</html>

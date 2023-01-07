@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="topSection">
+        {% if user.is_authenticated %}
+            <a class="topIcon" href="{% url 'mypage'%}">My medicines</a>
+            <a class="topIcon" href="/accounts/logout">LOGOUT</a>
+            {% if user.is_staff %}
+                <p class="hello">[STAFF] {{ user.username }}님 안녕하세요.</p>
+                <a class="topIcon" href="{% url 'medicinePostCreate'%}">약 정보 등록 페이지</a>
+            {% else %}
+            <a class="topIcon" href="{% url 'blogPostCreate'%}">Q&A 글쓰기</a>
+            <p class="hello">{{ user.username }}님 안녕하세요.</p>
+            {% endif %}
+        {% else %}
+            <a class="topIcon" href="{% url 'gologin'%}">LOGIN</a>
+        {% endif %}
+    </div>
+
+    <div class="boxForm6">
+        <h1 style="margin-bottom: 500px;">BOARD</h1>
+    <table class="writelist2" style="margin-bottom : 270px">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in post_list %}
+                <tr>
+                    <td>{{ p.id }}</td>
+                    <td class="title" style="cursor: pointer;">
+                        <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+                    </td>
+                    <td>{{ p.author }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'blogPostCreate' %}"><button name="btn4" id="btn4">글쓰기</button></a>
+</div>
+</body>
+</html>

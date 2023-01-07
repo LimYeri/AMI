@@ -1,0 +1,86 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<body>
+    <div class="boxForm">
+        <h2>회원가입</h2>
+        <section class="registerForm">
+            <form action="{% url 'join'%}" method="POST">
+                {% csrf_token %}
+                <div class="int-area">
+                    <input class="registerInput"type="text" name="email" id="id" autocomplete="off" required>
+                    <label for = "id">E-MAIL</label>
+                </div>
+                <div class="int-area">
+                    <input class="registerInput" type="password" name="password1" id="pw" autocomplete="off" required>
+                    <label for = "pw">PASSWORD</label>
+                </div>
+                <div class="int-area">
+                    <input class="registerInput" type="password" name="password2" id="pw" autocomplete="off" required>
+                    <label for = "pw">PASSWORD CONFIRM</label>
+                </div>
+                <select id="gender" name="gender">
+                    <option value="기본값" selected disabled>성별</option>
+                    <option value="남성">남성</option>
+                    <option value="여성">여성</option>
+                    <option value="선택안함">선택안함</option>
+                </select>
+                <select id="age" name="age">
+                    <option value="기본값" selected disabled>나이</option>
+                    <option value="연령">10대</option>
+                    <option value="연령">20대</option>
+                    <option value="연령">30대</option>
+                    <option value="연령">40대</option>
+                    <option value="연령">50대</option>
+                    <option value="연령">60대</option>
+                    <option value="연령">70대 이상</option>
+                    <option value="연령">선택안함</option> 
+                </select>
+                <div class="errMsg">
+                    {% if PW_error %}
+                            {{ PW_error }}
+                    {% endif %}
+                </div>
+                <p>간편하게 SNS로 회원가입</p>
+                <div class="snsLOGO">
+                    <a href="{% provider_login_url 'google' %}" class="sns"><img class="snsLogoG" src="{% static 'img/google.png' %}"></a>
+                    <a href="{% provider_login_url 'kakao' %}" class="sns"><img class="snsLogoK" src="{% static 'img/kakao.png' %}"></a> 
+                </div>
+                <button type="submit" name="btn2" id="btn2">JOIN</button>
+        </section>
+    </div>
+</form>
+
+<script>
+    let id = $('#id');
+    let pw = $('#pw');
+    let btn = $('#btn2');
+
+    $(btn).on('click', function(){
+        if($(id).val() == "") {
+            $(id).next('lable').addClass('warning');
+            setTimeout(function(){
+                $('lable').removeClass('warning');
+            }, 1500);
+        }
+        else if($(pw).val() == ""){
+            $(pw).next('lable').addClass('warning');
+            setTimeout(function(){
+                $('lable').removeClass('warning');
+            }, 1500);
+        }
+    });
+</script> 
+
+</body>
+</html>

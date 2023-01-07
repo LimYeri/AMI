@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 수정 페이지</title>
+</head>
+<body>
+    <form action="{{ Post.get_absolute_url }}/blogPostEdit" method="POST">
+        {% csrf_token %}
+        {{ Post.get_absolute_url }}
+        <input type="text" name="title" placeholder="제목"></input>    
+        <input type="text" name="content" placeholder="글"></input>
+        <button type="submit" name="btn" id="btn">submit</button>
+    </form>
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 수정 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">  
+</head>
+<body>
+    <div class="topSection">
+        {% if user.is_authenticated %}
+            <a class="topIcon" href="{% url 'mypage'%}">My medicines</a>
+            <a class="topIcon" href="/accounts/logout">LOGOUT</a>
+            {% if user.is_staff %}
+                <p class="hello">[STAFF] {{ user.username }}님 안녕하세요.</p>
+                <a class="topIcon" href="{% url 'medicinePostCreate'%}">약 정보 등록 페이지</a>
+            {% else %}
+            <a class="topIcon" href="{% url 'blogPostCreate'%}">Q&A 글쓰기</a>
+            <p class="hello">{{ user.username }}님 안녕하세요.</p>
+            {% endif %}
+        {% else %}
+            <a class="topIcon" href="{% url 'gologin'%}">LOGIN</a>
+        {% endif %}
+    </div>
+    <div class="boxForm3">
+        <form action="{{ Post.get_absolute_url }}/blogPostEdit" method="POST">
+            {% csrf_token %}
+            <h2 style="margin-top: 30px; margin-right: 15px;">게시글 작성</h2>
+            <p style="margin-left: 61px; margin-top: 45px;margin-bottom: 10px;">제목</p>
+            <input class="wrtieTitle" type="text" placeholder="제목" name="title">
+            <p style="margin-left: 61px; margin-top: 25px;margin-bottom: 10px;">내용</p>
+            <textarea class="writeContent" type="text" placeholder="내용을 입력하세요." rows="10" style="resize:none;" name="content"></textarea>
+            <a href="{% url 'BlogPostList' %}"><button name="btn5" id="btn5">글목록</button></a>
+            <a href="{% url 'blogPostCreate' %}"><button name="btn6" id="btn6">등록</button></a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유저 선택</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    <div class="boxForm4">
+        <h2>유저 선택</h2>
+        <div class="user1">
+            <!-- <p href="{% url 'staff_join'%}"><img class="user" src="{% static 'img/user1.png' %}"></img></p>/ -->
+            <a href="{% url 'staff_join'%}"><img class="user" src="{% static 'img/user1.png' %}" style="height: 220px; margin-top:20px"></img></a>
+            <p style="font-size: 17px; color:rgb(109, 109, 109);">약사</p>
+            <p style="font-size: 14px; padding-top: 5px;">약을 등록하고 사용자의 질문에 대답할 수 있어요!</p>
+        </div>
+        <div class="user2">
+            <!-- <p href="{% url 'join'%}"><img class="user" src="{% static 'img/user2.png' %}"></img></p> -->
+            <a href="{% url 'join'%}"><img class="user" src="{% static 'img/user2.png' %}" style="height: 220px; margin-top:20px"></img></a>
+            <p style="color:rgb(109, 109, 109); padding-top: 3px;">일반 사용자</p>
+            <p style="font-size: 14px; padding-top: 5px;">약을 검색하고 약사에게 질문을 할 수 있어요!</p>
+        </div>
+
+            <a href="./register.html"></a>
+        </div>
+        </section>
+    </div>
+    
+</body>
+</html>
