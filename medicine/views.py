@@ -49,13 +49,13 @@ def medicinePostCreate(request):
 
 # 약 제품 상세 페이지 및 스크랩 기능
 def medicinePostDetail(request, medicine_id):
-    # 현재 로그인된 유저 반환
-    user = User.objects.get(id=request.user.id)
     # 해당 medicine_id에 맞는 객체 반환
     MedicinePost = get_object_or_404(Medicine, id=medicine_id)
     context = {"Medicine": MedicinePost}
     # 스크랩 요청
     if request.method == 'POST':
+        # 현재 로그인된 유저 반환, 없으면 None
+        user = User.objects.filter(id=request.user.id).first()
         # 로그인 되어 있지 않다면
         if user is None:
             # 에러메시지 출력 후 로그인 페이지 로딩
