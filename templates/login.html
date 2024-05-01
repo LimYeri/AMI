@@ -43,8 +43,8 @@
 
         <p>간편하게 SNS로 로그인</p>
         <div class="snsLOGO2">
-            <a href="{% provider_login_url 'google' %}" class="sns2"><img class="snsLogoG2" src="{% static 'img/google.png' %}"></a>
-            <a href="{% provider_login_url 'kakao' %}" class="sns2"><img class="snsLogoK2" src="{% static 'img/kakao.png' %}"></a> 
+            <a href="{% provider_login_url 'google' method='oauth2' %}" class="sns2"><img class="snsLogoG2" src="{% static 'img/google.png' %}"></a>
+            <a href="{% provider_login_url 'kakao' method='oauth2' %}" class="sns2"><img class="snsLogoK2" src="{% static 'img/kakao.png' %}"></a> 
         </div>
         
     </section>
