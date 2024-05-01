@@ -54,15 +54,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
     
     'accounts',
     'Blog',
     'main',
     'medicine',
     
-    'django.contrib.sites',
-    
-    # allauth
+    # allauth - 소셜 로그인
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -102,13 +102,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'YerihanDabin.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# MySQL Database 연결
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
