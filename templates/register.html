@@ -53,8 +53,8 @@
                 </div>
                 <p>간편하게 SNS로 회원가입</p>
                 <div class="snsLOGO">
-                    <a href="{% provider_login_url 'google' %}" class="sns"><img class="snsLogoG" src="{% static 'img/google.png' %}"></a>
-                    <a href="{% provider_login_url 'kakao' %}" class="sns"><img class="snsLogoK" src="{% static 'img/kakao.png' %}"></a> 
+                    <a href="{% provider_login_url 'google' method='oauth2' %}" class="sns"><img class="snsLogoG" src="{% static 'img/google.png' %}"></a>
+                    <a href="{% provider_login_url 'kakao' method='oauth2' %}" class="sns"><img class="snsLogoK" src="{% static 'img/kakao.png' %}"></a> 
                 </div>
                 <button type="submit" name="btn2" id="btn2">JOIN</button>
         </section>
