@@ -106,7 +106,7 @@
 | 김다빈 |    https://github.com/KIMDAB1N|
 
 
-### Back-end & Server
+### Back-end & DB
 
 |               | github                             |
 | ------------- | ---------------------------------- |
