@@ -1,6 +1,7 @@
-# AMI - A Medicine Information (TEAM. YerihanDabin🕵️)
+# AMI (TEAM. YerihanDabin💊)
 - 본 프로젝트는 대학교 전공 과목 '데이터베이스(캡스톤디자인)'의 과제물이며, 약 정보 제공 사이트입니다.
 - 개발 팀은 항공소프트웨어공학과 학생들로, 총 2명으로 구성되어 있습니다.
+- AMI는 A Medicine Information의 약자입니다.
 
 <br>
 
